@@ -1,5 +1,6 @@
 package com.iot.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -29,9 +30,17 @@ public class CompanyServiceImpl implements CompanyService {
 	}
 
 	@Override
-	public List<CompaniesEntity> getAllCompaniesDetails() {
+	public List<Company> getAllCompaniesDetails() {
 
-		return companyRepo.findAll();
+		List<Company> companies=new ArrayList<>();
+
+		List<CompaniesEntity> all = companyRepo.findAll();
+		for (CompaniesEntity entity:all) {
+			Company company=new Company();
+			BeanUtils.copyProperties(entity,company);
+			companies.add(company);
+		}
+		return companies;
 	}
 
 }

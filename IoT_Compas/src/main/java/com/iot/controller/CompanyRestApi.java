@@ -27,8 +27,8 @@ public class CompanyRestApi {
 	}
 
 	@GetMapping("/company")
-	public ResponseEntity<List<CompaniesEntity>> getAllCompanies() {
-		List<CompaniesEntity> details = companyService.getAllCompaniesDetails();
+	public ResponseEntity<List<Company>> getAllCompanies() {
+		List<Company> details = companyService.getAllCompaniesDetails();
 		return new ResponseEntity<>(details, HttpStatus.OK);
 
 	}

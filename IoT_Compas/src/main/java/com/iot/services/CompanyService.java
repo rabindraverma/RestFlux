@@ -9,6 +9,6 @@ public interface CompanyService {
 
 	public String createCompany(Company company);
 
-	public List<CompaniesEntity> getAllCompaniesDetails();
+	public List<Company> getAllCompaniesDetails();
 
 }
